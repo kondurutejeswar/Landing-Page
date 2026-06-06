@@ -1,0 +1,492 @@
+ *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1209;
+    --ink-light: #2e2010;
+    --paper: #f5eedc;
+    --paper-aged: #ede3c8;
+    --paper-dark: #d9caa8;
+    --accent: #8b0000;
+    --rule: #2e2010;
+    --muted: #5a4a2e;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 15px;
+    line-height: 1.6;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  .page-wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    border-bottom: 4px double var(--rule);
+    padding: 1.5rem 0 0.75rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'IM Fell English', serif;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 0.6rem;
+    font-style: italic;
+  }
+
+  .paper-name {
+    font-family: Elena, 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 8vw, 5.5rem);
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: 0.01em;
+  }
+
+  .masthead-rule {
+    border: none;
+    border-top: 1.5px solid var(--rule);
+    margin: 0.4rem 0;
+  }
+
+  .masthead-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .masthead-edition {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IM Fell English', serif;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 0.4rem;
+    font-style: italic;
+  }
+
+  /* ── BANNER HEADLINE ── */
+  .banner {
+    border-bottom: 3px solid var(--rule);
+    padding: 1.2rem 0;
+    text-align: center;
+    background: var(--paper-aged);
+    margin: 0 -1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .banner-head {
+    font-family: 'Special Elite', cursive;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .banner-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+
+  .banner-headline em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .banner-deck {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+  }
+
+  /* ── COLUMNS GRID ── */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 2px 2fr 2px 1fr;
+    gap: 0;
+    margin-top: 1.5rem;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 3fr 2px 2fr;
+    gap: 0;
+    margin-top: 1.5rem;
+  }
+
+  .col { padding: 0 1.2rem; }
+  .col:first-child { padding-left: 0; }
+  .col:last-child { padding-right: 0; }
+
+  .col-rule {
+    width: 2px;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--rule) 0px,
+      var(--rule) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+    opacity: 0.4;
+    align-self: stretch;
+  }
+
+  /* ── SECTION LABELS ── */
+  .section-label {
+    font-family: 'Special Elite', cursive;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-top: 2px solid var(--accent);
+    padding-top: 0.4rem;
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+
+  /* ── HEADLINES ── */
+  h2.col-head {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    line-height: 1.15;
+    margin-bottom: 0.6rem;
+    color: var(--ink);
+  }
+
+  h2.col-head em { font-style: italic; color: var(--accent); }
+
+  h3.sub-head {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 1rem 0 0.3rem;
+    color: var(--ink);
+  }
+
+  /* ── BODY TEXT ── */
+  .body-text {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.87rem;
+    line-height: 1.75;
+    color: var(--ink-light);
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  .body-text + .body-text { margin-top: 0.6rem; }
+
+  .drop-cap::first-letter {
+    font-family: 'Playfair Display', serif;
+    float: left;
+    font-size: 4.2em;
+    line-height: 0.72;
+    margin: 0.05em 0.08em 0 0;
+    color: var(--ink);
+    font-weight: 900;
+  }
+
+  /* ── PORTRAIT BOX ── */
+  .portrait-box {
+    border: 1.5px solid var(--rule);
+    background: var(--paper-dark);
+    margin: 0.8rem 0;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    position: relative;
+  }
+
+  .portrait-initial {
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: 6rem;
+    color: var(--ink);
+    line-height: 1;
+    display: block;
+  }
+
+  .portrait-caption {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    display: block;
+    border-top: 1px solid var(--paper-dark);
+    padding-top: 0.4rem;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    border-top: 2px solid var(--rule);
+    border-bottom: 2px solid var(--rule);
+    margin: 1rem 0;
+    padding: 0.8rem 0;
+    text-align: center;
+  }
+
+  .pull-quote q {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    quotes: "\201C" "\201D";
+  }
+
+  .pull-quote q::before { content: open-quote; color: var(--accent); }
+  .pull-quote q::after  { content: close-quote; color: var(--accent); }
+
+  /* ── SKILLS TYPESET ── */
+  .skill-column {
+    columns: 2;
+    column-gap: 1rem;
+    list-style: none;
+    margin-top: 0.4rem;
+  }
+
+  .skill-column li {
+    font-family: 'Special Elite', cursive;
+    font-size: 0.78rem;
+    border-bottom: 1px dotted var(--paper-dark);
+    padding: 0.2rem 0;
+    break-inside: avoid;
+    color: var(--ink-light);
+  }
+
+  .skill-column li::before {
+    content: "▪ ";
+    color: var(--accent);
+  }
+
+  /* ── EXPERIENCE TABLE ── */
+  .exp-item {
+    border-top: 1px solid var(--paper-dark);
+    padding: 0.6rem 0;
+  }
+
+  .exp-item:first-of-type { border-top: none; }
+
+  .exp-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--ink);
+  }
+
+  .exp-place {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 0.82rem;
+    color: var(--accent);
+  }
+
+  .exp-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.15rem;
+    line-height: 1.5;
+  }
+
+  /* ── AD BOX ── */
+  .ad-box {
+    border: 2px solid var(--rule);
+    padding: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+    background: var(--paper-aged);
+    position: relative;
+  }
+
+  .ad-box::before, .ad-box::after {
+    content: "✦";
+    color: var(--accent);
+    font-size: 1rem;
+  }
+
+  .ad-head {
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: 1.6rem;
+    color: var(--ink);
+    display: block;
+  }
+
+  .ad-sub {
+    font-family: 'Special Elite', cursive;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-top: 0.3rem;
+  }
+
+  .ad-links {
+    margin-top: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .ad-link {
+    font-family: 'Special Elite', cursive;
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    padding: 0.25rem 0.6rem;
+    display: inline-block;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .ad-link:hover { background: var(--accent); color: var(--paper); }
+
+  /* ── HORIZONTAL RULE ── */
+  .ornamental-rule {
+    text-align: center;
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    color: var(--muted);
+    letter-spacing: 0.5em;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 3px double var(--rule);
+    margin: 1.5rem 0;
+  }
+
+  /* ── FULL-WIDTH BAND ── */
+  .full-band {
+    margin: 1.5rem -1.5rem;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .full-band h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--paper);
+  }
+
+  .full-band .tagline {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--paper-dark);
+  }
+
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .badge {
+    font-family: 'Special Elite', cursive;
+    font-size: 0.68rem;
+    border: 1px solid var(--paper-dark);
+    padding: 0.15rem 0.5rem;
+    color: var(--paper);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top: 3px double var(--rule);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-family: 'IM Fell English', serif;
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-style: normal;
+    font-family: 'Special Elite', cursive;
+    font-size: 0.72rem;
+  }
+
+  .footer a:hover { text-decoration: underline; }
+
+  /* ── AI TOOLS ROW ── */
+  .ai-strip {
+    background: var(--paper-dark);
+    border: 1.5px solid var(--rule);
+    padding: 0.8rem 1rem;
+    margin-top: 1rem;
+  }
+
+  .ai-strip-head {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .ai-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .ai-pill {
+    font-family: 'Special Elite', cursive;
+    font-size: 0.72rem;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.2rem 0.6rem;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 640px) {
+    .grid-3, .grid-2 {
+      grid-template-columns: 1fr;
+    }
+    .col-rule { display: none; }
+    .col { padding: 0; margin-top: 1rem; }
+    .skill-column { columns: 1; }
+    .full-band { flex-direction: column; }
+    .masthead-top, .masthead-edition { flex-direction: column; gap: 0.2rem; text-align: center; }
+  }
